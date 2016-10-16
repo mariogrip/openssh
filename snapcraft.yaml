@@ -1,0 +1,33 @@
+name: openssh
+version: "7.3p1"
+summary: OpenSSH is a tool for remote login with the SSH protocol.
+description: OpenSSH is the premier connectivity tool for remote login with the SSH protocol. It encrypts all traffic to eliminate eavesdropping, connection hijacking, and other attacks. In addition, OpenSSH provides a large suite of secure tunneling capabilities, several authentication methods, and sophisticated configuration options.
+confinement: strict
+
+apps:
+  ssh:
+    command: ssh
+    plugs: [network]
+  scp:
+    command: scp
+    plugs: [network]
+  sftp:
+    command: sftp
+    plugs: [network]
+  ssh-add:
+    command: ssh-add
+    plugs: [network]
+  ssh-agent:
+    command: ssh-agent
+    plugs: [network]
+  ssh-keygen:
+    command: ssh-keygen
+    plugs: [network]
+  ssh-keyscan:
+    command: ssh-keyscan
+    plugs: [network]
+
+parts:
+  openssh:
+    plugin: autotools
+    source: https://github.com/mariogrip/openssh-portable.git
